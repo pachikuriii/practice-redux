@@ -7,7 +7,7 @@ export const addTodoAction = (newTodo: Todo) => {
   };
 };
 
-export const toggleComleteAction = (id: number) => {
+export const toggleCompleteAction = (id: number) => {
   return {
     type: "TOGGLE_COMPLETE",
     payload: id,
