@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../common/rootState.type";
 import { TodoPresenter } from "./todoPresenter";
 import { useDispatch } from "react-redux";
-import { addTodoAction } from "./todoAction";
+import { addTodoAction, removeTodoAction } from "./todoAction";
 import { Todo } from "../../common/todo.type";
 
 export const TodoContainer = () => {
@@ -20,9 +20,14 @@ export const TodoContainer = () => {
     dispatch(addTodoAction(newTodo));
   };
 
+  const removeTodo = (id: number) => {
+    dispatch(removeTodoAction(id));
+  };
+
   const args = {
     todos,
     addTodo,
+    removeTodo,
   };
   return <TodoPresenter {...args} />;
 };
