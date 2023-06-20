@@ -13,4 +13,10 @@ export const state: Todo[] = [
     content: "テスト2の内容",
     isCompleted: false,
   },
+  {
+    id: 3,
+    title: "テスト3",
+    content: "テスト3の内容",
+    isCompleted: false,
+  },
 ];
