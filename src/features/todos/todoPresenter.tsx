@@ -4,10 +4,19 @@ import { Todo } from "../../common/todo.type";
 
 type TodoPresenterProps = {
   todos: Todo[];
+  addTodo: (title: string, content: string) => void;
 };
-export const TodoPresenter: React.FC<TodoPresenterProps> = ({ todos }) => {
+export const TodoPresenter: React.FC<TodoPresenterProps> = ({
+  todos,
+  addTodo,
+}) => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
+  const sendTodo = () => {
+    addTodo(title, content);
+    setTitle("");
+    setContent("");
+  };
 
   return (
     <>
@@ -28,7 +37,9 @@ export const TodoPresenter: React.FC<TodoPresenterProps> = ({ todos }) => {
             onChange={(e) => setContent(e.target.value)}
           />
         </label>
-        <button type="button">送信</button>
+        <button type="button" onClick={() => addTodo(title, content)}>
+          送信
+        </button>
       </form>
       <div>-------------------------</div>
       <h1>Todoリスト</h1>
